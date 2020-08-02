@@ -6,12 +6,9 @@ import History from '../../routes/History';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-      <Route history={History}>{Routes}</Route>
-      </div>
-    </BrowserRouter>
-  
+      <BrowserRouter>
+        <Route history={History}>{Routes}</Route>
+      </BrowserRouter>
   );
 }
 
