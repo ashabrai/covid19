@@ -1,0 +1,20 @@
+.container {
+   margin: 300px 0;
+   position: absolute;
+   width: 100%;
+}
+.card {
+    margin: 0 2% !important;
+    position: relative;
+    z-index: 2;
+
+}
+.infected {
+    border-bottom: 10px solid rgba(0, 0,255, 0.5);
+}
+.recovered {
+    border-bottom: 10px solid rgba(0, 255 , 0, 0.5);
+}
+.dealth {
+    border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+}

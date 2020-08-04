@@ -2,22 +2,25 @@ import React, { useEffect } from 'react'
 import coronaPhoto from '../../assets/corona.jpg';
 import {connect} from 'react-redux';
 import * as action from '../../store/action';
-import { getCovidSummary } from '../../store/selectors';
+import Card from '../Card/Card'
+// import { getCovidSummary } from '../../store/selectors';
+import styles from './Homepage.module.css'
+import State from '../State/State';
+import Country from '../Country/Country';
 
 const Homepage = (props) => {
-    console.log(props)
 
     useEffect(() => {
         props.requestCovidSummary()
     }, [])
 
     return (
-       <div>
-               <img src={coronaPhoto} alt='corona-virus' className='photo'/>
-                   <h1>Cornona Virus</h1>
-                   <h3>You want stats? You've come to the right place</h3>
-         
-       </div>
+            <div className={styles.container}>
+               <img src={coronaPhoto} alt='corona-virus' className={styles.photo}/>
+               <Card data={props.globalStats}/>
+               <Country {...props}/>
+               <State {...props}/>
+            </div>
     )
 }
 
@@ -25,8 +28,7 @@ const mapStateToProps = state => {
 
     return {
         ...state,
-        getStats: getCovidSummary(state)
-    }
+        }
 }
 
 

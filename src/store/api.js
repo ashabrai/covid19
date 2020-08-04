@@ -13,7 +13,7 @@ export default {
     },
 
     fetchCovidSummary: async () => {
-        let url = 'https://api.covid19api.com/summary'
+        let url = 'https://corona.lmao.ninja/v2/all?yesterday'
         let options = {
             method: 'GET',
             redirect: 'follow'
@@ -24,5 +24,33 @@ export default {
             .catch(err => console.log(err))
 
             return response;
+    },
+
+    fetchStateData: async (state) => { // this function will probably be removd
+        let url = `https://corona.lmao.ninja/v2/states/${state}?yesterday=true`
+        let options = {
+            method: 'Get',
+            redirect: 'follow'
+        };
+
+        let response = await fetch(url, options)
+            .then((response) => response.json())
+            .catch(err => console.log(err))
+
+        return response;
+    },
+
+    fetchStateName: async () => {
+        let url = 'https://corona.lmao.ninja/v2/states?sort&yesterday';
+        let options = {
+            method: 'Get',
+            redirect: 'follow'
+        };
+
+        let response = await fetch(url, options)
+        .then((response) => response.json())
+        .catch(err => console.log(err))
+        
+        return response
     }
 }
