@@ -10,7 +10,10 @@ import {
     REQUEST_STATE_DATA_FAILED,
     REQUEST_STATES,
     REQUEST_STATES_SUCCEEDED,
-    REQUEST_STATES_FAILED
+    REQUEST_STATES_FAILED,
+    SET_SELECTED_STATE,
+    SET_SELECTED_COUNTRY,
+    SET_SELECTED_STATE_SUCCEEDED
 } from '../constants/app';
 
 export const requestAllCountries = payload => ({
@@ -45,6 +48,7 @@ export const requestCovidSummaryFailed = payload => ({
     payload,
 })
 
+// ---------------------------------------------------
 export const requestStateData = payload => ({
     type: REQUEST_STATE_DATA,
     payload,
@@ -60,7 +64,7 @@ export const requestStateDataFailed = payload => ({
     payload,
 })
 
-
+// ---------------------------------------------------
 
 export const requestStates = payload => ({
     type: REQUEST_STATES,
@@ -74,5 +78,22 @@ export const requestStatesSucceeded = payload => ({
 
 export const requestStatesFailed = payload => ({
     type: REQUEST_STATES_FAILED,
+    payload,
+})
+
+// ---------------------------------------------------
+
+export const setSelectedState = payload => ({
+    type: SET_SELECTED_STATE,
+    payload,
+})
+
+export const setSelectedStateSucceeded = payload => ({
+    type: SET_SELECTED_STATE_SUCCEEDED,
+    payload
+})
+
+export const setSelectedCountry = payload => ({
+    type: SET_SELECTED_COUNTRY,
     payload,
 })

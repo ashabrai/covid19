@@ -3,10 +3,8 @@ import coronaPhoto from '../../assets/corona.jpg';
 import {connect} from 'react-redux';
 import * as action from '../../store/action';
 import Card from '../Card/Card'
-// import { getCovidSummary } from '../../store/selectors';
 import styles from './Homepage.module.css'
-import State from '../State/State';
-import Country from '../Country/Country';
+
 
 const Homepage = (props) => {
 
@@ -18,8 +16,6 @@ const Homepage = (props) => {
             <div className={styles.container}>
                <img src={coronaPhoto} alt='corona-virus' className={styles.photo}/>
                <Card data={props.globalStats}/>
-               <Country {...props}/>
-               <State {...props}/>
             </div>
     )
 }

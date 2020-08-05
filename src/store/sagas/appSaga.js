@@ -4,8 +4,8 @@ import Api from '../api'
 import {
     REQUEST_ALL_COUNTRIES,
     REQUEST_COVID_SUMMARY,
-    REQUEST_STATE_DATA,
     REQUEST_STATES,
+    SET_SELECTED_STATE
 } from '../../constants/app';
 
 import { 
@@ -13,10 +13,11 @@ import {
     requestAllCountriesFailed,
     requestCovidSummarySucceeded, 
     requestCovidSummaryFailed,
-    requestStateDataSucceeded,
-    requestStateDataFailed,
+    // requestStateDataSucceeded,
+    // requestStateDataFailed,
     requestStatesSucceeded,
-    requestStatesFailed
+    requestStatesFailed,
+    setSelectedStateSucceeded
 } from '../action';
 
 export function* requestAllCountriesGenerator() {
@@ -63,12 +64,23 @@ export function* requestStatesGenerator(){
     }
 }
 
+export function* setSelectedStateGenerator(action){
+    console.log(action, 'action in gener')
+    // const { state } = action.payload;
+    try {
+        yield put(setSelectedStateSucceeded())
+        
+    }catch(e){
+        yield put(requestStatesFailed(e));
+
+    }
+}
 export function* appSaga(){
     yield takeLatest(REQUEST_ALL_COUNTRIES, requestAllCountriesGenerator);
     yield takeLatest(REQUEST_COVID_SUMMARY, requestCovidSummaryGenerator);
     // yield takeLatest(REQUEST_STATE_DATA, requestStateDataGenerator);
     yield takeLatest(REQUEST_STATES, requestStatesGenerator);
 
-
+    yield takeLatest(SET_SELECTED_STATE, setSelectedStateGenerator)
 
 }

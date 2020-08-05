@@ -6,7 +6,9 @@ import {
     REQUEST_STATE_DATA_SUCCEEDED,
     REQUEST_STATE_DATA_FAILED,
     REQUEST_STATES_SUCCEEDED,
-    REQUEST_STATES_FAILED
+    REQUEST_STATES_FAILED,
+    SET_SELECTED_STATE,
+    SET_SELECTED_COUNTRY
 } from '../../constants/app';
 
 export const initialState = {
@@ -15,6 +17,8 @@ export const initialState = {
     globalStats: [],
     data:[],
     states: [],
+    selectedState: '',
+    selectedCountry: '',
 }
 
 function covidDataReducer(state = initialState, action) {
@@ -70,6 +74,16 @@ function covidDataReducer(state = initialState, action) {
                 errors: {
                     ...state.errors
                 }
+            }
+        case SET_SELECTED_STATE: 
+            return {
+                ...state,
+                selectedState: action.payload,
+            }
+        case SET_SELECTED_COUNTRY:
+            return {
+                ...state,
+                selectedCountry: action.payload
             }
             default:
                 return state;

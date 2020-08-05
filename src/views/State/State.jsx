@@ -3,15 +3,19 @@ import { connect } from 'react-redux';
 import * as action from '../../store/action';
 import { getStatesNames } from '../../store/selectors'
 import StateDropDown from '../StateDropDown/StateDropDown';
+import {Container} from '@material-ui/core';
+import styles from './State.module.css'
 
 const State = props => {
-
     useEffect(() => {
         props.requestStates()
     },[])
 
+    
     return (
-            <StateDropDown stateNames={props.stateNames}/>
+        <Container className={styles.container}>
+            <StateDropDown {...props}/>
+        </Container>
     )
 }
 
@@ -22,7 +26,9 @@ const mapStateToProps = state => {
     }
 }
 const mapDispatchToProps = (dispatch) => ({
-    requestStates: () => dispatch(action.requestStates())
+    requestStates: () => dispatch(action.requestStates()),
+    setSelectedState: () => dispatch(action.setSelectedState())
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(State);

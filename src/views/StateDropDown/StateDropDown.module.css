@@ -1,6 +1,8 @@
 .formControl {
-    width: 30%;
+    width: 20%;
+    margin-top: 10px !important;
     margin-bottom: 30px !important;
-    margin: 300px 0;
+    /* background-color: seashell; */
+    padding-top: 10px !important;
 
   }
