@@ -7,6 +7,7 @@ import { findStateData, findCountryData } from '../../utils/index';
 
 const Chart = (props) => {
     const { states, selectedState, allCountries, selectedCountry } = props;
+    console.log(props)
     
     const displayChartValue = () => {
         if(selectedState){

@@ -15,7 +15,7 @@ function App() {
         <BrowserRouter>
         <Route history={History}>{Routes}</Route>
         <Homepage/>
-        {/* <Country/> */}
+        <Country/>
         <State/>
         <DataTable/>
         <Chart/>

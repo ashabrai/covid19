@@ -15,7 +15,7 @@ const Country = props => {
 
     return (
         <Container className={styles.container}>
-            <CountryDropDown {...props} />
+            <CountryDropDown {...props}/>
         </Container>
     )
 }
