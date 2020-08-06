@@ -11,8 +11,6 @@ const StateDropDown = (props) => {
 
     }
 
-
-
     return (
        <FormControl variant="outlined" className={styles.formControl}>
            <NativeSelect defaultValue="" variant="outlined" onChange={(e) => handleStateChange(e.target.value)}> 

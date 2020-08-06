@@ -7,6 +7,7 @@ import Homepage from '../Homepage/Homepage';
 import Country from '../Country/Country';
 import State from '../State/State';
 import Chart from '../Chart/Chart';
+import DataTable from '../DataTable/DataTable';
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
         <BrowserRouter>
         <Route history={History}>{Routes}</Route>
         <Homepage/>
-        <Country/>
+        {/* <Country/> */}
         <State/>
+        <DataTable/>
         <Chart/>
       </BrowserRouter>
     </div>

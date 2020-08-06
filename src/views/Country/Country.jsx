@@ -8,7 +8,6 @@ import { Container } from '@material-ui/core';
 
 
 const Country = props => {
-console.log(props)
     useEffect(() => {
         props.requestAllCountries()
     // eslint-disable-next-line react-hooks/exhaustive-deps
