@@ -5,7 +5,10 @@ import {
     REQUEST_ALL_COUNTRIES,
     REQUEST_COVID_SUMMARY,
     REQUEST_STATES,
-    SET_SELECTED_STATE
+    SET_SELECTED_STATE,
+    SET_SELECTED_COUNTRY,
+    SET_SELECTED_STATE_DATA,
+    SET_SELECTED_COUNTRY_DATA
 } from '../../constants/app';
 
 import { 
@@ -13,11 +16,15 @@ import {
     requestAllCountriesFailed,
     requestCovidSummarySucceeded, 
     requestCovidSummaryFailed,
-    // requestStateDataSucceeded,
-    // requestStateDataFailed,
     requestStatesSucceeded,
     requestStatesFailed,
-    setSelectedStateSucceeded
+    setSelectedStateSucceeded,
+    setSelectedCountryDataSucceeded,
+    setSelectedCountryDataFailed,
+    setSelectedStateDataSucceeded,
+    setSelectedStateDataFailed,
+    setSelectedCountrySucceeded,
+    setSelectedCountryFailed,
 } from '../action';
 
 export function* requestAllCountriesGenerator() {
@@ -40,17 +47,6 @@ export function* requestCovidSummaryGenerator(){
 
     }
 }
-// export function* requestStateDataGenerator(action){
-//     // const { state } = action.payload;
-//     try {
-//         const response = yield call(Api.fetchStateData, state);
-//         yield put(requestStateDataSucceeded(response))
-        
-//     }catch(e){
-//         yield put(requestStateDataFailed(e));
-
-//     }
-// }
 
 export function* requestStatesGenerator(){
  
@@ -65,22 +61,49 @@ export function* requestStatesGenerator(){
 }
 
 export function* setSelectedStateGenerator(action){
-    console.log(action, 'action in gener')
-    // const { state } = action.payload;
     try {
-        yield put(setSelectedStateSucceeded())
+        yield put(setSelectedStateSucceeded(action.payload))
         
     }catch(e){
-        yield put(requestStatesFailed(e));
+        yield put(setSelectedStateDataFailed(e));
 
     }
 }
+
+export function* setSelectedStateDataGenerator(action){
+    try{
+        yield put(setSelectedStateDataSucceeded(action.payload))
+    }catch(e){
+        yield put(setSelectedStateDataFailed(e))
+    }
+}
+
+export function* setSelectedCountryGenerator(action){
+    try {
+        yield put(setSelectedCountrySucceeded(action.payload))
+        
+    }catch(e){
+        yield put(setSelectedCountryFailed(e));
+
+    }
+}
+
+export function* setSelectedCountryDataGenerator(action) {
+    try {
+        yield put(setSelectedCountryDataSucceeded(action.payload))
+        
+    } catch(e){
+        yield put(setSelectedCountryDataFailed(e));
+
+    }
+}
+
 export function* appSaga(){
     yield takeLatest(REQUEST_ALL_COUNTRIES, requestAllCountriesGenerator);
     yield takeLatest(REQUEST_COVID_SUMMARY, requestCovidSummaryGenerator);
-    // yield takeLatest(REQUEST_STATE_DATA, requestStateDataGenerator);
     yield takeLatest(REQUEST_STATES, requestStatesGenerator);
-
-    yield takeLatest(SET_SELECTED_STATE, setSelectedStateGenerator)
-
+    yield takeLatest(SET_SELECTED_STATE, setSelectedStateGenerator);
+    yield takeLatest(SET_SELECTED_COUNTRY, setSelectedCountryGenerator)
+    yield takeLatest(SET_SELECTED_STATE_DATA, setSelectedStateDataGenerator);
+    yield takeLatest(SET_SELECTED_COUNTRY_DATA, setSelectedCountryDataGenerator);
 }

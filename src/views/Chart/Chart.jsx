@@ -3,43 +3,52 @@ import React from 'react'
 import { Bar } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 import styles from './Chart.module.css'
-import { findStateData, findCountryData } from '../../utils/index';
 
 const Chart = (props) => {
-    const { states, selectedState, allCountries, selectedCountry } = props;
-    console.log(props)
+    const { selectedState, selectedCountry, selectedCountryData, selectedStateData } = props;
     
-    const displayChartValue = () => {
-        if(selectedState){
-        let state = findStateData(states, selectedState);
-        return state;
-    } else if(selectedCountry){
-        let country = findCountryData(allCountries, selectedCountry);
-        return country;
-        }
-    }
+    let barData = selectedState ? selectedStateData : selectedCountryData;
 
     const barChart = () => { 
-        let barData = displayChartValue();
-
-      return(
-      <Bar
-        data={{
-            labels: ['Infected', 'Deaths'],
-            datasets: [
-                {
-                    label: 'People',
-                    backgroundColor: ['rgba(0, 0, 255, 0.5)', 'rgba(255, 0, 0, 0.5)'],
-                    data:[barData[0].active, barData[0].deaths],
-                },
-            ],
-        }}
-        options={{
-            legend: { display: false },
-            title: { display: true, text: `Results for ${selectedState ? selectedState : selectedCountry}`},
+        if(barData.recovered) {
+            return (
+                <Bar
+                data={{
+                    labels: ['Infected', 'Recovered', 'Deaths'],
+                    datasets: [
+                        {
+                            label: 'People',
+                            backgroundColor: ['rgba(0, 0, 255, 0.5)', 'rgba(0, 255, 0, 0.5)','rgba(255, 0, 0, 0.5)'],
+                            data:[barData.active, barData.recovered, barData.deaths],
+                        },
+                    ],
                 }}
-            />
-        ) 
+                options={{
+                    legend: { display: false },
+                    title: { display: true, text: `Results for ${selectedState ? selectedState : selectedCountry}`},
+                    }}
+                />
+            )
+        } else {
+            return (
+                <Bar
+                data={{
+                    labels: ['Infected', 'Deaths'],
+                    datasets: [
+                        {
+                            label: 'People',
+                            backgroundColor: ['rgba(0, 0, 255, 0.5)','rgba(255, 0, 0, 0.5)'],
+                            data:[barData.active, barData.deaths],
+                        },
+                    ],
+                }}
+                options={{
+                    legend: { display: false },
+                    title: { display: true, text: `Results for ${selectedState ? selectedState : selectedCountry}`},
+                    }}
+                />
+            )
+        }
     }
 
 

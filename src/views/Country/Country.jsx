@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import * as action from '../../store/action';
 import CountryDropDown from '../CountryDropDown/CountryDropDown';
 import styles from './Country.module.css'
-import {getCountryNames} from '../../store/selectors'
 import { Container } from '@material-ui/core';
 
 
 const Country = props => {
+    const { requestAllCountries } = props;
+
     useEffect(() => {
-        props.requestAllCountries()
+        requestAllCountries()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
@@ -23,7 +24,6 @@ const Country = props => {
 const mapStateToProps = state => {
     return {
         ...state,
-        countryNames: getCountryNames(state)
     }
 }
 

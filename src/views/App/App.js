@@ -7,7 +7,7 @@ import Homepage from '../Homepage/Homepage';
 import Country from '../Country/Country';
 import State from '../State/State';
 import Chart from '../Chart/Chart';
-import DataTable from '../DataTable/DataTable';
+import DisplayAdditionalData from '../DisplayAdditionalData/DisplayAdditionalData';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Homepage/>
         <Country/>
         <State/>
-        <DataTable/>
+        <DisplayAdditionalData/>
         <Chart/>
       </BrowserRouter>
     </div>

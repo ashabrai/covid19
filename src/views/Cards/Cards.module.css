@@ -1,7 +1,8 @@
 .container {
-   margin: 300px 0;
+   /* margin: 300px 0; */
    position: absolute;
    width: 100%;
+   margin-top:400px;
 }
 .card {
     margin: 0 2% !important;

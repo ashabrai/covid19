@@ -7,8 +7,10 @@ import {Container} from '@material-ui/core';
 import styles from './State.module.css'
 
 const State = props => {
+    const { requestStates } = props;
     useEffect(() => {
-        props.requestStates()
+        requestStates()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     
@@ -27,8 +29,6 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = (dispatch) => ({
     requestStates: () => dispatch(action.requestStates()),
-    setSelectedState: () => dispatch(action.setSelectedState())
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(State);
