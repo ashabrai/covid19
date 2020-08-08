@@ -6,4 +6,20 @@
 
 .photo{
     position: absolute;
+    width: 100%;
+    margin-top: 50px;
 }
+
+.header {
+    position: absolute;
+}
+
+@media only screen and (max-width: 770px) {
+    .container {
+      margin: 0 10%;
+    }
+  
+    .photo {
+      width: 100%;
+    }
+  }

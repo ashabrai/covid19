@@ -8,10 +8,11 @@ import styles from './State.module.css'
 
 const State = props => {
     const { requestStates } = props;
+
     useEffect(() => {
         requestStates()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    },[]);
 
     
     return (
@@ -19,16 +20,17 @@ const State = props => {
             <StateDropDown {...props}/>
         </Container>
     )
-}
+};
 
 const mapStateToProps = state => {
     return {
         ...state,
         stateNames: getStatesNames(state) 
     }
-}
+};
+
 const mapDispatchToProps = (dispatch) => ({
     requestStates: () => dispatch(action.requestStates()),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(State);

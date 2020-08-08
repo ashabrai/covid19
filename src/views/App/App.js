@@ -8,6 +8,7 @@ import Country from '../Country/Country';
 import State from '../State/State';
 import Chart from '../Chart/Chart';
 import DisplayAdditionalData from '../DisplayAdditionalData/DisplayAdditionalData';
+import DropDownDescription from '../DropDownDescription/DropDownDescription';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <BrowserRouter>
         <Route history={History}>{Routes}</Route>
         <Homepage/>
+        <DropDownDescription/>
         <Country/>
         <State/>
         <DisplayAdditionalData/>

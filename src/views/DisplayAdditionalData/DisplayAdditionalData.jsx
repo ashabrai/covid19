@@ -1,15 +1,15 @@
+/* eslint-disable no-unused-expressions */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux'
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    marginTop: 20,
+    minWidth: 400,
   },
   bullet: {
     display: 'inline-block',
@@ -19,43 +19,47 @@ const useStyles = makeStyles({
   title: {
     fontSize: 14,
   },
-  pos: {
-    marginBottom: 12,
-  },
 });
 
 const DisplayAdditionalData = (props) => {
-    console.log(props)
-  const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
-  return (
-    <Card className={classes.root} variant="outlined">
+  const { selectedCountryData, selectedStateData, selectedCountry, selectedState } = props;
+
+  const classes = useStyles();
+
+  let data = selectedCountry ? selectedCountryData : selectedStateData;
+
+  const displayData = () => {
+    return(
+      <Card className={classes.root} variant="outlined">
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography>
         <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
+        {data.state ? data.state : data.country}        
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          adjective
+          Covid Results:
         </Typography>
         <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+          Number of cases today: {data.todayCases}
+        </Typography>
+        <Typography variant="body2" component="p">
+          Number of Deaths: {data.todayDeaths}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
+      )
+    };
+
+
+  return (
+    <div>
+      { selectedCountry || selectedState ? displayData() : null }
+    </div>
   );
-}
+};
 
 const mapStateToProps = state => ({
     ...state,
-})
+});
 
-export default connect(mapStateToProps)(DisplayAdditionalData);
+export default connect(mapStateToProps, null)(DisplayAdditionalData);

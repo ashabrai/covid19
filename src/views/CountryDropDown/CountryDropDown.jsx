@@ -12,15 +12,21 @@ const CountryDropDown = (props) => {
         } = props;
 
     const handleCountryChange = (country) => {
-        setSelectedState('');
-        setSelectedCountry(country);
-        setCountryData(country);
-    }
+        if(country === "Country"){
+            setSelectedState('');
+            setSelectedCountry('');
+            setCountryData('');
+        } else {
+            setSelectedState('');
+            setSelectedCountry(country);
+            setCountryData(country);
+        }
+    };
 
     const setCountryData = (country) => {
         let data = findCountryData(allCountries, country);
         setSelectedCountryData(data[0]);
-    }
+    };
 
     return (
        <FormControl className={styles.formControl}>
@@ -30,18 +36,17 @@ const CountryDropDown = (props) => {
            </NativeSelect>
        </FormControl>
     )
-}
+};
 
 const mapStateToProps = state => ({
     ...state,
     countryNames: getCountryNames(state)
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
     setSelectedCountry: (value) => dispatch(action.setSelectedCountry(value)),
     setSelectedState: (value) => dispatch(action.setSelectedState(value)),
     setSelectedCountryData: (value) => dispatch(action.setSelectedCountryData(value))
-
-})  
+});  
 
 export default connect(mapStateToProps, mapDispatchToProps)(CountryDropDown);

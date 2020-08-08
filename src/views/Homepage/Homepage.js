@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import coronaPhoto from '../../assets/corona.jpg';
+import coronaPhoto from '../../assets/covid.jpeg';
 import {connect} from 'react-redux';
 import * as action from '../../store/action';
 import Cards from '../Cards/Cards'
@@ -20,12 +20,11 @@ const Homepage = (props) => {
                <Cards {...props}/>
             </div>
     )
-}
-
-
+};
 
 
 const mapDispatchToProps = (dispatch) => ({
     requestCovidSummary: () => dispatch(action.requestCovidSummary())
-})
+});
+
 export default connect(null, mapDispatchToProps)(Homepage);

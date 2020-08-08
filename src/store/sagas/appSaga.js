@@ -46,10 +46,9 @@ export function* requestCovidSummaryGenerator(){
         yield put(requestCovidSummaryFailed(e));
 
     }
-}
+};
 
 export function* requestStatesGenerator(){
- 
     try {
         const response = yield call(Api.fetchStateName);
         yield put(requestStatesSucceeded(response))
@@ -58,7 +57,7 @@ export function* requestStatesGenerator(){
         yield put(requestStatesFailed(e));
 
     }
-}
+};
 
 export function* setSelectedStateGenerator(action){
     try {
@@ -68,35 +67,35 @@ export function* setSelectedStateGenerator(action){
         yield put(setSelectedStateDataFailed(e));
 
     }
-}
+};
 
-export function* setSelectedStateDataGenerator(action){
+export function* setSelectedStateDataGenerator(action) {
     try{
-        yield put(setSelectedStateDataSucceeded(action.payload))
-    }catch(e){
-        yield put(setSelectedStateDataFailed(e))
-    }
-}
+        yield put(setSelectedStateDataSucceeded(action.payload));
 
-export function* setSelectedCountryGenerator(action){
+    } catch(e) {
+        yield put(setSelectedStateDataFailed(e));
+    }
+};
+
+export function* setSelectedCountryGenerator(action) {
     try {
-        yield put(setSelectedCountrySucceeded(action.payload))
+        yield put(setSelectedCountrySucceeded(action.payload));
         
-    }catch(e){
+    } catch(e) {
         yield put(setSelectedCountryFailed(e));
 
-    }
-}
+    };
+};
 
 export function* setSelectedCountryDataGenerator(action) {
     try {
-        yield put(setSelectedCountryDataSucceeded(action.payload))
-        
-    } catch(e){
-        yield put(setSelectedCountryDataFailed(e));
+        yield put(setSelectedCountryDataSucceeded(action.payload));
 
+    } catch(e) {
+        yield put(setSelectedCountryDataFailed(e));
     }
-}
+};
 
 export function* appSaga(){
     yield takeLatest(REQUEST_ALL_COUNTRIES, requestAllCountriesGenerator);
@@ -106,4 +105,4 @@ export function* appSaga(){
     yield takeLatest(SET_SELECTED_COUNTRY, setSelectedCountryGenerator)
     yield takeLatest(SET_SELECTED_STATE_DATA, setSelectedStateDataGenerator);
     yield takeLatest(SET_SELECTED_COUNTRY_DATA, setSelectedCountryDataGenerator);
-}
+};
