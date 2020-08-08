@@ -16,7 +16,7 @@
 - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest
 
 ### Photo Used By: 
-[**Photo**](https://www.ei-ie.org/en/detail/16723/covid-19-educators-call-for-global-solidarity-and-a-human-centred-approach-to-the-crisis)
+- https://www.ei-ie.org/en/detail/16723/covid-19-educators-call-for-global-solidarity-and-a-human-centred-approach-to-the-crisis
 
 ### Current Version:
 2.0
@@ -32,4 +32,4 @@
 - App should open up in browser.
 
 ### Built By:
-[**BraiFrauen**](https://www.linkedin.com/in/braifrauen/)
+[**Brai Frauen**](https://www.linkedin.com/in/braifrauen/)
