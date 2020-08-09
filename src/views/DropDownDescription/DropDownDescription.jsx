@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-            To see a country or states data, select from the drop down.
+            To see a Country or States data, please select from the drop down.
             <br/>
              <i> *Data can take up to 24hrs to update*</i>
         </Typography>
