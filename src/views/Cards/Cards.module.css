@@ -22,7 +22,7 @@
 @media only screen and (max-width: 770px) {
     .container{
         width: 80% !important; 
-        padding-top: 370px;
+        padding-top: 300px;
     }
     .card {
         margin: 1% 5%  !important;
