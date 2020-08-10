@@ -36,7 +36,7 @@ const DisplayAdditionalData = (props) => {
         <Typography variant="h5" component="h2">
         {data.state ? data.state : data.country}        
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
+        <Typography color="textSecondary">
           Covid Results:
         </Typography>
         <Typography variant="body2" component="p">
