@@ -34,7 +34,7 @@ const Cards = (props) => {
                         <Typography color="textSecondary"><Countup start={0} end={globalStats.todayRecovered} duration={2.5} separator="," /></Typography>
                     </CardContent>
                 </Grid>
-                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.dealth)}>
+                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.death)}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>World Total Deceased</Typography>
                         <Typography variant="h5"><Countup start={0} end={globalStats.deaths} duration={2.5} separator="," /></Typography>

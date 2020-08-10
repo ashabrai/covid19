@@ -18,6 +18,7 @@ const useStyles = makeStyles({
     root: {
       marginTop: '850px',
       paddingTop: '10px',
+      width: '80%'
     }
   }
 });
