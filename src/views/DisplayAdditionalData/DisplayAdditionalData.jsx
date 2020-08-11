@@ -9,7 +9,6 @@ import { connect } from 'react-redux'
 const useStyles = makeStyles({
   root: {
     marginTop: 20,
-    // minWidth: 400,
     marginBottom: '10px',
   },
   title: {
