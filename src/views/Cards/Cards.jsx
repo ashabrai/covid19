@@ -1,7 +1,6 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid } from '@material-ui/core';
-import Countup from 'react-countup'
-import cx from 'classnames';
+import { Grid } from '@material-ui/core';
+import CardComponent from '../Cards/MUI-Card/Card';
 import {connect} from 'react-redux'
 import styles from './Cards.module.css';
 
@@ -15,35 +14,30 @@ const Cards = (props) => {
     return (
         <div className={styles.container}>
             <Grid container spacing={3} justify="center">
-                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.infected)}>
-                    <CardContent>
-                        <Typography color="textSecondary" gutterBottom>World Total Infected</Typography>
-                        <Typography variant="h5"><Countup start={0} end={globalStats.todayCases} duration={2.5} separator="," /></Typography>
-                        <Typography color="textSecondary">{new Date(globalStats.updated).toDateString()}</Typography>
-                        <Typography variant="body2">Active Cases Today:</Typography>
-                        <Typography color="textSecondary"><Countup start={0} end={globalStats.todayCases} duration={2.5} separator="," /></Typography>
-
-                    </CardContent>
-                </Grid>
-                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.recovered)}>
-                    <CardContent>
-                        <Typography color="textSecondary" gutterBottom>World Total Recovered</Typography>
-                        <Typography variant="h5"><Countup start={0} end={globalStats.recovered} duration={2.5} separator="," /></Typography>
-                        <Typography color="textSecondary">{new Date(globalStats.updated).toDateString()}</Typography>
-                        <Typography variant="body2">Recovered Cases Today:</Typography>
-                        <Typography color="textSecondary"><Countup start={0} end={globalStats.todayRecovered} duration={2.5} separator="," /></Typography>
-                    </CardContent>
-                </Grid>
-                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.death)}>
-                    <CardContent>
-                        <Typography color="textSecondary" gutterBottom>World Total Deceased</Typography>
-                        <Typography variant="h5"><Countup start={0} end={globalStats.deaths} duration={2.5} separator="," /></Typography>
-                        <Typography color="textSecondary">{new Date(globalStats.updated).toDateString()}</Typography>
-                        <Typography variant="body2">Death Cases For Today:</Typography>
-                        <Typography color="textSecondary"><Countup start={0} end={globalStats.todayDeaths} duration={2.5} separator="," /></Typography>
-
-                    </CardContent>
-                </Grid>
+                <CardComponent
+                    className={styles.infected}
+                    cardTitle="World Total Infected"
+                    value={globalStats.todayCases}
+                    lastUpdated={globalStats.updated}
+                    cardSecondaryTitle='Active Cases Today'
+                    todayCases={globalStats.todayCases}
+                />
+                   <CardComponent
+                    className={styles.recovered}
+                    cardTitle="World Total Recovered"
+                    value={globalStats.recovered}
+                    lastUpdated={globalStats.updated}
+                    cardSecondaryTitle='Recovered Cases Today'
+                    todayCases={globalStats.todayRecovered}
+                />
+                    <CardComponent
+                    className={styles.death}
+                    cardTitle="World Total Deceased"
+                    value={globalStats.deaths}
+                    lastUpdated={globalStats.updated}
+                    cardSecondaryTitle='Recovered Cases Today'
+                    todayCases={globalStats.todayDeaths}
+                />
             </Grid>
         </div>
     )

@@ -1,10 +1,6 @@
 .container {
     margin: 50px 0;
 }
-.card {
-    margin: 0 2% !important;
-    width:400px;
-}
 .infected {
     border-bottom: 10px solid rgba(0, 0,255, 0.5);
 }

@@ -8,7 +8,7 @@ import State from '../State/State';
 import Chart from '../Chart/Chart';
 import DisplayAdditionalData from '../DisplayAdditionalData/DisplayAdditionalData';
 import DropDownDescription from '../DropDownDescription/DropDownDescription';
-import coronaPhoto from '../../assets/covid.jpeg';
+import CoronaPhoto from '../../assets/covid.jpeg';
 import Cards from '../Cards/Cards'
 import Homepage from '../Homepage/Homepage'
 
@@ -17,7 +17,7 @@ function App() {
     <div className={styles.container}>
         <BrowserRouter>
         <Route history={History}>{Routes}</Route>
-        <img src={coronaPhoto} alt='corona-virus' className={styles.photo}/>
+        <img src={CoronaPhoto} alt='corona-virus' className={styles.photo}/>
         <Homepage/>
         <Cards/>
         <DropDownDescription/>

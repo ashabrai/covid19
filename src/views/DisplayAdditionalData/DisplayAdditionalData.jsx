@@ -11,9 +11,6 @@ const useStyles = makeStyles({
     marginTop: 20,
     marginBottom: '10px',
   },
-  title: {
-    fontSize: 14,
-  },
 });
 
 const DisplayAdditionalData = (props) => {
@@ -35,10 +32,10 @@ const DisplayAdditionalData = (props) => {
           Covid Results:
         </Typography>
         <Typography variant="body2" component="p">
-          Number of cases today: {data.todayCases}
+          Number of Cases Today: {data.todayCases}
         </Typography>
         <Typography variant="body2" component="p">
-          Number of Deaths: {data.todayDeaths}
+          Number of Deaths Today: {data.todayDeaths}
         </Typography>
       </CardContent>
     </Card>

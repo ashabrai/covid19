@@ -30,7 +30,6 @@ const useStyles = makeStyles({
              <i> *Data can take up to 24hrs to update*</i>
         </Typography>
       </CardContent>
-    
     </Card>
   );
 };
