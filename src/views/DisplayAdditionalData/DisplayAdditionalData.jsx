@@ -9,12 +9,8 @@ import { connect } from 'react-redux'
 const useStyles = makeStyles({
   root: {
     marginTop: 20,
-    minWidth: 400,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    // minWidth: 400,
+    marginBottom: '10px',
   },
   title: {
     fontSize: 14,
