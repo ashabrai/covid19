@@ -1,18 +1,13 @@
 body {
   background-color: rgb(250,250,250);
 }
-
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-
-@media only screen and (max-width: 770px) {
-  .container {
-  width:100%;
-  overflow:auto;
-  margin: 0 auto;
-}
+.photo {
+  width: 100%;
+  height: 400px;
 }

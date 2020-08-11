@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
-import coronaPhoto from '../../assets/covid.jpeg';
 import {connect} from 'react-redux';
 import * as action from '../../store/action';
-import Cards from '../Cards/Cards'
 import styles from './Homepage.module.css'
 
 
@@ -16,8 +14,6 @@ const Homepage = (props) => {
 
     return (
             <div className={styles.container}>
-               <img src={coronaPhoto} alt='corona-virus' className={styles.photo}/>
-               <Cards {...props}/>
             </div>
     )
 };

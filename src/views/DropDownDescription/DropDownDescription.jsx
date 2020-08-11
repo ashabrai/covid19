@@ -6,22 +6,16 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    // minWidth: 450,
     // eslint-disable-next-line no-useless-computed-key
     ['@media(max-width:770px)']:{
       width: '100%',
     },
-    position: "relative",
-    marginTop: '460px',
-    // eslint-disable-next-line no-useless-computed-key
-    ['@media(max-width:770px)']:{
-      marginTop: '800px'
-    },
+    position: "relative",  
     textAlign: 'center'
   },
-  title: {
-    fontSize: 14,
-  },
+    title: {
+      fontSize: 14,
+    },
 });
 
  function DropDownDescription() {

@@ -1,13 +1,9 @@
 .container {
-   position: absolute;
-   width: 100%;
-   margin-top:650px;
+    margin: 50px 0;
 }
 .card {
     margin: 0 2% !important;
-    position: relative;
-    /* z-index: 2; */
-
+    width:400px;
 }
 .infected {
     border-bottom: 10px solid rgba(0, 0,255, 0.5);
@@ -22,9 +18,8 @@
 @media only screen and (max-width: 770px) {
     .container{
         width: 80% !important; 
-        padding-top: 200px;
     }
     .card {
-        margin: 1% 5%  !important;
-        }
+        margin: 2% 0 !important;        
+    }
 }

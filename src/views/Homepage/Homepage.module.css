@@ -1,17 +1,13 @@
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .photo{
-    position: absolute;
     width: 100%;
     margin-top: 50px;
-}
-
-.header {
-    position: absolute;
 }
 
 @media only screen and (max-width: 770px) {
