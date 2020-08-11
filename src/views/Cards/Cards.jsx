@@ -35,7 +35,7 @@ const Cards = (props) => {
                     cardTitle="World Total Deceased"
                     value={globalStats.deaths}
                     lastUpdated={globalStats.updated}
-                    cardSecondaryTitle='Recovered Cases Today'
+                    cardSecondaryTitle='Death Cases Today'
                     todayCases={globalStats.todayDeaths}
                 />
             </Grid>
